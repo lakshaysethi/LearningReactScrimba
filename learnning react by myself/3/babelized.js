@@ -60,15 +60,6 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf
-    ? Object.getPrototypeOf
-    : function _getPrototypeOf(o) {
-        return o.__proto__ || Object.getPrototypeOf(o);
-      };
-  return _getPrototypeOf(o);
-}
-
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError(
@@ -76,6 +67,15 @@ function _assertThisInitialized(self) {
     );
   }
   return self;
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf
+    ? Object.getPrototypeOf
+    : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+  return _getPrototypeOf(o);
 }
 
 function _inherits(subClass, superClass) {
@@ -98,76 +98,143 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-var ColorDiv =
+var Background =
   /*#__PURE__*/
   (function(_React$Component) {
-    _inherits(ColorDiv, _React$Component);
+    _inherits(Background, _React$Component);
 
-    function ColorDiv(props) {
+    function Background(props) {
       var _this;
 
-      _classCallCheck(this, ColorDiv);
+      _classCallCheck(this, Background);
 
       _this = _possibleConstructorReturn(
         this,
-        _getPrototypeOf(ColorDiv).call(this, props)
+        _getPrototypeOf(Background).call(this, props)
       );
-      _this.state = {
-        color: _this.props.color
-      };
-      _this.changeColor = _this.changeColor.bind(_assertThisInitialized(_this));
+      _this.state = {};
       return _this;
     }
 
-    _createClass(ColorDiv, [
-      {
-        key: "changeColor",
-        value: function changeColor() {
-          this.setState({
-            color: "red"
-          });
-        }
-      },
+    _createClass(Background, [
       {
         key: "render",
         value: function render() {
-          var style = {
-            backgroundColor: this.state.color,
-            minHeight: 100,
-            Width: 100,
-            border: "1px solid",
-            display: "inline-block"
-          };
+          return React.createElement("div", {
+            className: "background"
+          });
+        }
+      }
+    ]);
+
+    return Background;
+  })(React.Component);
+
+var NavBar =
+  /*#__PURE__*/
+  (function(_React$Component2) {
+    _inherits(NavBar, _React$Component2);
+
+    function NavBar(props) {
+      var _this2;
+
+      _classCallCheck(this, NavBar);
+
+      _this2 = _possibleConstructorReturn(
+        this,
+        _getPrototypeOf(NavBar).call(this, props)
+      );
+      _this2.state = {};
+      return _this2;
+    }
+
+    _createClass(NavBar, [
+      {
+        key: "render",
+        value: function render() {
           return React.createElement(
             "div",
             {
-              style: style,
-              className: "color-div",
-              id: "".concat(this.state.color, "-color-div")
+              className: "navBar"
             },
-            React.createElement("div", {
-              style: style
-            }),
-            React.createElement(
-              "button",
-              {
-                onClick: this.changeColor
-              },
-              "Change color Of ",
-              "".concat(this.state.color, "-color-div")
-            )
+            React.createElement(GreenbackLogo, null),
+            React.createElement(SideMenu, null)
           );
         }
       }
     ]);
 
-    return ColorDiv;
+    return NavBar;
+  })(React.Component);
+
+var Earth =
+  /*#__PURE__*/
+  (function(_React$Component3) {
+    _inherits(Earth, _React$Component3);
+
+    function Earth(props) {
+      var _this3;
+
+      _classCallCheck(this, Earth);
+
+      _this3 = _possibleConstructorReturn(
+        this,
+        _getPrototypeOf(Earth).call(this, props)
+      );
+      _this3.state = {};
+      return _this3;
+    }
+
+    _createClass(Earth, [
+      {
+        key: "render",
+        value: function render() {
+          return React.createElement("div", {
+            className: "earth"
+          });
+        }
+      }
+    ]);
+
+    return Earth;
+  })(React.Component);
+
+var BottomButtonsContainer =
+  /*#__PURE__*/
+  (function(_React$Component4) {
+    _inherits(BottomButtonsContainer, _React$Component4);
+
+    function BottomButtonsContainer(props) {
+      var _this4;
+
+      _classCallCheck(this, BottomButtonsContainer);
+
+      _this4 = _possibleConstructorReturn(
+        this,
+        _getPrototypeOf(BottomButtonsContainer).call(this, props)
+      );
+      _this4.state = {};
+      return _this4;
+    }
+
+    _createClass(BottomButtonsContainer, [
+      {
+        key: "render",
+        value: function render() {
+          return React.createElement("div", {
+            className: "bottomBtnContainer"
+          });
+        }
+      }
+    ]);
+
+    return BottomButtonsContainer;
   })(React.Component);
 
 var App =
   /*#__PURE__*/
-  (function(_React$Component2) {
-    _inherits(App, _React$Component2);
+  (function(_React$Component5) {
+    _inherits(App, _React$Component5);
 
     function App() {
       _classCallCheck(this, App);
@@ -185,20 +252,12 @@ var App =
           return React.createElement(
             "div",
             {
-              className: "color-Divs-Holder"
+              className: "container"
             },
-            React.createElement(ColorDiv, {
-              key: 1,
-              color: "green"
-            }),
-            React.createElement(ColorDiv, {
-              key: 2,
-              color: "black"
-            }),
-            React.createElement(ColorDiv, {
-              key: 3,
-              color: "blue"
-            })
+            React.createElement(Background, null),
+            React.createElement(NavBar, null),
+            React.createElement(Earth, null),
+            React.createElement(BottomButtonsContainer, null)
           );
         }
       }
@@ -210,4 +269,121 @@ var App =
 ReactDOM.render(
   React.createElement(App, null),
   document.getElementById("root")
-);
+); //
+//
+//
+//
+
+{
+  //old reference
+  var ColorDiv =
+    /*#__PURE__*/
+    (function(_React$Component6) {
+      _inherits(ColorDiv, _React$Component6);
+
+      function ColorDiv(props) {
+        var _this5;
+
+        _classCallCheck(this, ColorDiv);
+
+        _this5 = _possibleConstructorReturn(
+          this,
+          _getPrototypeOf(ColorDiv).call(this, props)
+        );
+        _this5.state = {
+          color: _this5.props.color
+        };
+        _this5.changeColor = _this5.changeColor.bind(
+          _assertThisInitialized(_this5)
+        );
+        return _this5;
+      }
+
+      _createClass(ColorDiv, [
+        {
+          key: "changeColor",
+          value: function changeColor() {
+            this.setState({
+              color: "red"
+            });
+          }
+        },
+        {
+          key: "render",
+          value: function render() {
+            var style = {
+              backgroundColor: this.state.color,
+              minHeight: 100,
+              Width: 100,
+              border: "1px solid",
+              display: "inline-block"
+            };
+            return React.createElement(
+              "div",
+              {
+                style: style,
+                className: "color-div",
+                id: "".concat(this.state.color, "-color-div")
+              },
+              React.createElement("div", {
+                style: style
+              }),
+              React.createElement(
+                "button",
+                {
+                  onClick: this.changeColor
+                },
+                "Change color Of ",
+                "".concat(this.state.color, "-color-div")
+              )
+            );
+          }
+        }
+      ]);
+
+      return ColorDiv;
+    })(React.Component);
+
+  var AppOld =
+    /*#__PURE__*/
+    (function(_React$Component7) {
+      _inherits(AppOld, _React$Component7);
+
+      function AppOld() {
+        _classCallCheck(this, AppOld);
+
+        return _possibleConstructorReturn(
+          this,
+          _getPrototypeOf(AppOld).apply(this, arguments)
+        );
+      }
+
+      _createClass(AppOld, [
+        {
+          key: "render",
+          value: function render() {
+            return React.createElement(
+              "div",
+              {
+                className: "color-Divs-Holder"
+              },
+              React.createElement(ColorDiv, {
+                key: 1,
+                color: "green"
+              }),
+              React.createElement(ColorDiv, {
+                key: 2,
+                color: "black"
+              }),
+              React.createElement(ColorDiv, {
+                key: 3,
+                color: "blue"
+              })
+            );
+          }
+        }
+      ]);
+
+      return AppOld;
+    })(React.Component);
+}
